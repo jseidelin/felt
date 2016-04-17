@@ -8,5 +8,13 @@ module.exports = {
     flipv: require("./lib/flipv"),
     fliph: require("./lib/fliph"),
     crop: require("./lib/crop"),
-    convolve3x3: require("./lib/convolve3x3")
+    convolve3x3: require("./lib/convolve3x3"),
+    convolve5x5: require("./lib/convolve5x5"),
+    gaussian: require("./lib/gaussian"),
+    glow: require("./lib/glow"),
+    sharpen3x3: require("./lib/sharpen3x3"),
+    sharpen5x5: require("./lib/sharpen5x5"),
+    posterize: require("./lib/posterize"),
+    emboss3x3: require("./lib/emboss3x3"),
+    findedges: require("./lib/findedges")
 };

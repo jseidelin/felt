@@ -47,8 +47,33 @@ const modes = [
             [1, -8, 1],
             [1,  1, 1]
         ]
-    }]
+    }],
+    ["convolve5x5", "convolve5x5", {
+        kernel: [
+            [ 1,  1,  1,  1,  1],
+            [ 1,  1,  1,  1,  1],
+            [ 1,  1, -1, -1, -1],
+            [-1, -1, -1, -1, -1],
+            [-1, -1, -1, -1, -1]
+        ]
+    }],
+    ["gaussian", "gaussian_7", {kernelSize: 7}],
+    ["gaussian", "gaussian_13", {kernelSize: 13}],
+    ["glow", "glow_7", {kernelSize: 7, amount: 0.5}],
+    ["sharpen3x3", "sharpen3x3", {strength: 0.2}],
+    ["sharpen5x5", "sharpen5x5", {strength: 0.1}],
+    ["posterize", "posterize_4", {levels: 4}],
+    ["emboss3x3", "emboss3x3", {amount: 0.5, angle: 20}],
+    ["findedges", "findedges", {}]
 ];
+function toArrayBuffer(buffer) {
+    var ab = new ArrayBuffer(buffer.length);
+    var view = new Uint8Array(ab);
+    for (var i = 0; i < buffer.length; ++i) {
+        view[i] = buffer[i];
+    }
+    return view;
+}
 
 async.eachSeries(modes, (mode, callback) => {
     getImageData("input.png", (input) => {
@@ -58,5 +83,3 @@ async.eachSeries(modes, (mode, callback) => {
         });
     });
 });
-
-
