@@ -39,28 +39,7 @@ describe("felt", function() {
         });
     });
 
-    describe("invert()", function() {
-        it("should invert image", function(done) {
-            getImageData("results/invert.png", (expectedData) => {
-                const outData = felt.invert(input);
-                compareImageData(outData, expectedData);
-                done();
-            });
-        });
-    });
-
-    describe("sepia()", function() {
-        it("should apply sepia toning to image", function(done) {
-            getImageData("results/sepia.png", (expectedData) => {
-                const outData = felt.sepia(input);
-                compareImageData(outData, expectedData);
-                done();
-            });
-        });
-    });
-
     describe("brightness()", function() {
-
         it("should apply low brightness to image", function(done) {
             getImageData("results/low_brightness.png", (expectedData) => {
                 const outData = felt.brightness(input, {
@@ -71,7 +50,6 @@ describe("felt", function() {
                 done();
             });
         });
-
         it("should apply high brightness to image", function(done) {
             getImageData("results/high_brightness.png", (expectedData) => {
                 const outData = felt.brightness(input, {
@@ -82,7 +60,6 @@ describe("felt", function() {
                 done();
             });
         });
-
         it("should apply low contrast to image", function(done) {
             getImageData("results/low_contrast.png", (expectedData) => {
                 const outData = felt.brightness(input, {
@@ -93,7 +70,6 @@ describe("felt", function() {
                 done();
             });
         });
-
         it("should apply high contrast to image", function(done) {
             getImageData("results/high_contrast.png", (expectedData) => {
                 const outData = felt.brightness(input, {
@@ -104,7 +80,6 @@ describe("felt", function() {
                 done();
             });
         });
-
         it("should apply both brightness and contrast to image", function(done) {
             getImageData("results/brightness_contrast.png", (expectedData) => {
                 const outData = felt.brightness(input, {
@@ -115,13 +90,22 @@ describe("felt", function() {
                 done();
             });
         });
-
     });
 
     describe("desaturate()", function() {
         it("should desaturate image", function(done) {
             getImageData("results/desaturate.png", (expectedData) => {
                 const outData = felt.desaturate(input);
+                compareImageData(outData, expectedData);
+                done();
+            });
+        });
+    });
+
+    describe("invert()", function() {
+        it("should invert image", function(done) {
+            getImageData("results/invert.png", (expectedData) => {
+                const outData = felt.invert(input);
                 compareImageData(outData, expectedData);
                 done();
             });
@@ -138,7 +122,6 @@ describe("felt", function() {
                 done();
             });
         });
-
         it("should darken image", function(done) {
             getImageData("results/lighten_dark.png", (expectedData) => {
                 const outData = felt.lighten(input, {
@@ -148,8 +131,16 @@ describe("felt", function() {
                 done();
             });
         });
-
     });
 
+    describe("sepia()", function() {
+        it("should apply sepia toning to image", function(done) {
+            getImageData("results/sepia.png", (expectedData) => {
+                const outData = felt.sepia(input);
+                compareImageData(outData, expectedData);
+                done();
+            });
+        });
+    });
 
 });

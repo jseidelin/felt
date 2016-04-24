@@ -10,7 +10,8 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "build:watch": "npm run build -- --watch",
-    "test": "mocha --reporter spec tests/spec.js"
+    "test": "mocha --reporter spec tests/spec.js",
+    "test:perf": "mocha --reporter spec tests/perf.js"
   },
   "author": "Jacob Seidelin",
   "license": "MIT",
